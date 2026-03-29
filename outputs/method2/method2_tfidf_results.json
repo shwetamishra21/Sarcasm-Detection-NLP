@@ -1,0 +1,100 @@
+{
+  "method": "Method 2 \u2014 TF-IDF + Sklearn",
+  "dataset": "raquiba/Sarcasm_News_Headline",
+  "dataset_size": 55328,
+  "train_size": 44262,
+  "test_size": 11066,
+  "feature_set": "TF-IDF bigram (1,2), max_features=50000, sublinear_tf=True",
+  "models": {
+    "logistic_regression": {
+      "hyperparams": {
+        "C": 5.0,
+        "solver": "saga",
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "model": "Logistic Regression (TF-IDF bigram)",
+        "TP": 4613,
+        "TN": 5451,
+        "FP": 543,
+        "FN": 459,
+        "Accuracy": 0.9095,
+        "Precision": 0.8947,
+        "Recall": 0.9095,
+        "F1": 0.902,
+        "Sensitivity": 0.9095,
+        "Specificity": 0.9094,
+        "FPR": 0.0906,
+        "FNR": 0.0905,
+        "NPV": 0.9223,
+        "FDR": 0.1053,
+        "MCC": 0.818,
+        "ROC_AUC": 0.9648
+      },
+      "cv": {
+        "lr_cv_accuracy_mean": 0.9134,
+        "lr_cv_accuracy_std": 0.0024,
+        "lr_cv_f1_mean": 0.9059,
+        "lr_cv_f1_std": 0.0028
+      }
+    },
+    "linear_svm": {
+      "hyperparams": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "calibrated": true
+      },
+      "metrics": {
+        "model": "Linear SVM (TF-IDF bigram)",
+        "TP": 4627,
+        "TN": 5534,
+        "FP": 460,
+        "FN": 445,
+        "Accuracy": 0.9182,
+        "Precision": 0.9096,
+        "Recall": 0.9123,
+        "F1": 0.9109,
+        "Sensitivity": 0.9123,
+        "Specificity": 0.9233,
+        "FPR": 0.0767,
+        "FNR": 0.0877,
+        "NPV": 0.9256,
+        "FDR": 0.0904,
+        "MCC": 0.8353,
+        "ROC_AUC": 0.9692
+      }
+    }
+  },
+  "ablation": [
+    {
+      "TF-IDF Config": "tfidf_unigram",
+      "Accuracy": 0.8867702873667088,
+      "F1": 0.8774572127139364,
+      "MCC": 0.772320989504778
+    },
+    {
+      "TF-IDF Config": "tfidf_bigram",
+      "Accuracy": 0.9094523766491958,
+      "F1": 0.9020336331638639,
+      "MCC": 0.8179661492718628
+    },
+    {
+      "TF-IDF Config": "tfidf_char",
+      "Accuracy": 0.8959877101030183,
+      "F1": 0.8878714076960545,
+      "MCC": 0.7910960249564666
+    }
+  ],
+  "figures": [
+    "eda_01_class_distribution.png",
+    "eda_02_headline_length.png",
+    "eda_03_wordclouds.png",
+    "eda_04_top_ngrams.png",
+    "eda_05_tfidf_top_features.png",
+    "eval_01_confusion_matrices.png",
+    "eval_02_metrics_comparison.png",
+    "eval_03_roc_curves.png",
+    "eval_04_learning_curve.png",
+    "eval_05_lr_coefficients.png"
+  ]
+}
